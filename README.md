@@ -1,1 +1,1 @@
-# drumkit
+# Vanilla Javascript Refresher Project
