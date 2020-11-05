@@ -1,7 +1,7 @@
 /*Code for keyboard inputs*/
 document.addEventListener("keydown", function (event) {
-	console.log(event);
 	makeSound(event.key);
+	animateKey(event.key);
 });
 
 /*Code for clicks*/
@@ -10,6 +10,7 @@ console.log(drumButtons.length);
 for (var i = 0; i < drumButtons.length; i++) {
 	drumButtons[i].addEventListener("click", function (event) {
 		makeSound(this.innerHTML);
+		animateKey(this.innerHTML);
 	});
 }
 
@@ -54,4 +55,12 @@ function makeSound(key) {
 		default:
 			console.log("Key not configured");
 	}
+}
+
+//Animation on key selection
+function animateKey(key) {
+	document.querySelector("." + key).classList.add("pressed");
+	setTimeout(function () {
+		document.querySelector("." + key).classList.remove("pressed");
+	}, 100);
 }
